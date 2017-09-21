@@ -23,6 +23,10 @@ class Person < ApplicationRecord
     person && person.authenticate(senha) ? person : nil
   end
 
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
+
   private
 
 
