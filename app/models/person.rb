@@ -1,5 +1,8 @@
 class Person < ApplicationRecord
 
+  has_secure_password
+  validates :password, presence: { on: :create }, length: { minimum: 8, allow_blank: true }
+
   validates :name, presence: true, length: { maximum: 50 }
   validates :born_at, presence: true
   validate :age_limit
