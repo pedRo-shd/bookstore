@@ -1,6 +1,5 @@
 class PeopleController < ApplicationController
   respond_to :html
-  before_action :logged?, only: [:index]
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   # GET /people
@@ -46,10 +45,7 @@ class PeopleController < ApplicationController
   end
 
   private
-
-  def logged?
-    raise NotAuthenticated unless session[:id]
-  end
+  
 
   def set_person
     @person = Person.find(params[:id]) rescue nil

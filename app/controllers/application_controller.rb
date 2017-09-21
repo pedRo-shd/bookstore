@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
     flash[:notice] = 'Você precisa se autenticar no sistema'
     redirect_to new_session_url
   end
+
+  def logged?
+    raise NotAuthenticated unless session[:id]
+  end
 end
