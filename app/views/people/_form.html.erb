@@ -33,7 +33,8 @@
 
   <div class="field">
     <%= form.label :born_at %>
-    <%= form.date_select :born_at, id: :person_born_at %>
+    <%= form.date_select :born_at, id: :person_born_at,
+          start_year: 100.years.ago.year, end_year: 16.years.ago.year %>
   </div>
 
   <div class="field">
