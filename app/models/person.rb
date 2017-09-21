@@ -15,8 +15,9 @@ class Person < ApplicationRecord
   }
 
   scope :admins, -> { where(admin: true) }
-  scope :recent, -> { where(["created_at >= ?", 7.days.ago]) }  
-  scope :by_domain, -> (domain) { where("email like ?", "%@#{domain}") }
+  scope :recent, -> { where(["created_at >= ?", 7.days.ago]) }
+  default_scope -> { order(:name) }
+  
 
   def self.auth(email, senha)
     person = Person.where(email: email).first
