@@ -1,7 +1,7 @@
 class Person < ApplicationRecord
 
   has_secure_token :password_reset_token
-  
+
   has_secure_password
   validates :password, presence: { on: :create }, length: { minimum: 8, allow_blank: true }
 
@@ -13,6 +13,8 @@ class Person < ApplicationRecord
     format: {
       with: /\A[a-zA-Z0-9_.-]+@([a-zA-Z0-9_ -]+\.)+[a-zA-Z]{2,4}\z/
   }
+
+  scope :admins, -> { where(admin: true) }
 
   def self.auth(email, senha)
     person = Person.where(email: email).first
