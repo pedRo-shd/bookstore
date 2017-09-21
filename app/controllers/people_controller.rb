@@ -1,6 +1,7 @@
 class PeopleController < ApplicationController
-  before_action :set_person, only: [:show, :edit, :update, :destroy]
   respond_to :html
+  before_action :logged?, only: [:index]
+  before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   # GET /people
   # GET /people.json
@@ -45,7 +46,11 @@ class PeopleController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
+
+  def logged?
+    raise NotAuthenticated unless session[:id]
+  end
+
   def set_person
     @person = Person.find(params[:id]) rescue nil
     if !@person
@@ -55,7 +60,6 @@ class PeopleController < ApplicationController
     end
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def person_params
     params.require(:person).permit(:name, :email, :password, :password_confirmation, :born_at, :admin)
   end
