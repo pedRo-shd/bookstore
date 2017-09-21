@@ -13,13 +13,14 @@
 ActiveRecord::Schema.define(version: 20170920221624) do
 
   create_table "people", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password"
+    t.string "name", limit: 50, null: false
+    t.string "email", limit: 100
+    t.string "password", limit: 100
     t.date "born_at"
     t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_people_on_email", unique: true
   end
 
 end
