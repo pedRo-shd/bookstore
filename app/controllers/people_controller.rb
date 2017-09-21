@@ -28,7 +28,6 @@ class PeopleController < ApplicationController
     @person = Person.new(person_params)
     flash[:notice] = 'Pessoa salva' if @person.save
     respond_with @person
-    end
   end
 
   # PATCH/PUT /people/1
@@ -46,13 +45,13 @@ class PeopleController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_person
-      @person = Person.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_person
+    @person = Person.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def person_params
-      params.require(:person).permit(:name, :email, :password, :password_confirmation, :born_at, :admin)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def person_params
+    params.require(:person).permit(:name, :email, :password, :password_confirmation, :born_at, :admin)
+  end
 end
