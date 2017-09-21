@@ -1,4 +1,4 @@
-class PeopleController < ApplicationController
+class LoggedController < ApplicationController
   respond_to :html
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
@@ -45,7 +45,7 @@ class PeopleController < ApplicationController
   end
 
   private
-  
+
 
   def set_person
     @person = Person.find(params[:id]) rescue nil
