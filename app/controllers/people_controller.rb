@@ -1,6 +1,7 @@
 class PeopleController < AdminController
   respond_to :html
   before_action :set_person, only: [:show, :edit, :update, :destroy]
+  after_action :save_image, only: [:create,:update]
 
   def index
     @people = Person.all
@@ -36,6 +37,13 @@ class PeopleController < AdminController
   end
 
   private
+
+  def save_image
+    return unless params[:data_stream].present?
+      @image = (@person.image || Image.new(title: @person.name, person_id: @person.id))
+      @image.data_stream = params[:data_stream]
+      @person.image = @image if @image.save
+  end
 
   def set_person
     @person = Person.find(params[:id]) rescue nil
