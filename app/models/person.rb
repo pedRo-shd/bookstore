@@ -1,5 +1,6 @@
 class Person < ApplicationRecord
-
+  has_many :books
+  
   has_secure_token :password_reset_token
 
   has_secure_password
