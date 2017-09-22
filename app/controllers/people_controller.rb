@@ -1,4 +1,4 @@
-class PeopleController < LoggedController
+class PeopleController < AdminController
   respond_to :html
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
