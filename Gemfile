@@ -20,6 +20,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
 # A set of Rails responders to dry up your application
 gem 'responders'
+# Repository for collecting Locale data for Ruby on Rails
+gem 'rails-i18n'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
