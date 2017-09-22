@@ -57,6 +57,6 @@ class PeopleController < LoggedController
   end
 
   def person_params
-    params.require(:person).permit(:name, :email, :password, :password_confirmation, :born_at, :admin)
+    params.require(:person).permit(:name, :email, :password, :password_confirmation, :born_at)
   end
 end
