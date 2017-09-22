@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookstore</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header>
+      <h1>Bookstore</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><%= link_to 'Inicial', '/' %></li>
+      </ul>
+    </nav>
+
+    <section id="main">
+      <%= yield %>
+    </section>
+
+    <footer>
+    Desenvolvido por Pedro Custódio
+    </footer>
+  </body>
+</html>
