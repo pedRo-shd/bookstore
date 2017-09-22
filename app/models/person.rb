@@ -17,6 +17,7 @@ class Person < ApplicationRecord
   has_secure_password
 
   has_many :books, dependent: :restrict_with_exception
+  has_one :image, dependent: :destroy
 
   def self.auth(email, senha)
     person = Person.where(email: email).first
