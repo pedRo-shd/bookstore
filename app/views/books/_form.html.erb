@@ -32,6 +32,17 @@
   </div>
 
   <div class="field">
+    <h2>Categorias</h2>
+    <ul>
+      <%= collection_check_boxes :book, :category_ids, @categories, :id, :name do |builder| %>
+        <li>
+          <%= builder.label { builder.check_box + builder.text } %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="field">
     <%= form.label :person_id %>
     <%= form.text_field :person_id, id: :book_person_id %>
   </div>
