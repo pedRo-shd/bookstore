@@ -7,6 +7,7 @@ class PeopleController < LoggedController
   end
 
   def show
+    @person = PersonPresenter.new(@person)
   end
 
   def new
