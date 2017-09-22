@@ -37,10 +37,12 @@
           start_year: 100.years.ago.year, end_year: 16.years.ago.year %>
   </div>
 
-  <div class="field">
-    <%= label_tag :admin %><br/>
-    <%= check_box_tag :admin %>
-  </div>
+  <% if session[:admin] %>
+    <div class="field">
+      <%= label_tag :admin %><br />
+      <%= check_box_tag :admin, true, @person.admin %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>
