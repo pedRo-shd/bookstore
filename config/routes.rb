@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root 'pub#index'
 
   get  'pub/sobre'
-  get    'livro/:id'   => 'pub#book',   as: 'pub_book'
+  get  'livro/:id'   => 'pub#book',   as: 'pub_book'
+  get  'autor/:id'   => 'pub#author', as: 'pub_author'
+  get  'comprar/:id' => 'pub#buy',    as: 'buy'
 
   resources :people do
     collection do

@@ -3,6 +3,7 @@ class PubController < ApplicationController
     @books = Book.all
   end
 
-  def sobre
+  def book
+    @book = Book.find(params[:id])
   end
 end
