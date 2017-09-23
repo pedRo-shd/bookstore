@@ -1,6 +1,7 @@
 class PeopleController < AdminController
   respond_to :html
   before_action :set_person, only: [:show, :edit, :update, :destroy]
+
   after_action :save_image, only: [:create,:update]
 
   def index
@@ -39,11 +40,13 @@ class PeopleController < AdminController
   private
 
   def save_image
-    return unless params[:data_stream].present?
-    @image = (@person.image || Image.new(title: @person.name, person_id: @person.id))
+    return if !params[:data_stream]
+    @image = @person.image ? @person.image : Image.new(title: @person.name,
+                                                       imageable_id: @book.id,
+                                                       imageable_type: controller_name.singularize.camelize)
     @image.data_stream = params[:data_stream]
     @image.height = 200
-    @person.image = @image if @image.save
+    @person.save
   end
 
   def set_person
