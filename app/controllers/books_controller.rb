@@ -1,4 +1,4 @@
-class BooksController < ApplicationController
+class BooksController < AdminController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :load_categories, only: [:new, :edit, :create, :update]
 
