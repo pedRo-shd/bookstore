@@ -25,6 +25,15 @@
   <%= @book.person %>
 </p>
 
+<p>
+  <strong>Person:</strong>
+  <%= @book.person %>
+</p>
+
+<p>
+  <%= @book.image ? image_tag(@book.image) : '' %>
+</p>
+
 <h2>Categorias</h2>
 <ul>
   <% for category in @book.categories %>
