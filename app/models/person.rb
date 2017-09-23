@@ -13,7 +13,6 @@ class Person < ApplicationRecord
   scope :recent, -> { where(["created_at >= ?", 7.days.ago]) }
   default_scope -> { order(:name) }
 
-  has_secure_token :password_reset_token
   has_secure_password
 
   has_many :orders

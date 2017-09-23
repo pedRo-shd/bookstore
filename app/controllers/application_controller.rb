@@ -17,11 +17,6 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_url
   end
 
-  def not_authenticated
-    flash[:notice] = 'Você precisa se autenticar no sistema'
-    redirect_to new_session_url
-  end
-
   def not_admin
     flash[:notice] = 'Você precisa ser administrador'
     redirect_to root_path
