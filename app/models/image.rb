@@ -5,8 +5,6 @@ class Image < ActiveRecord::Base
 
   attr_accessor :data_stream, :width, :height
 
-  belongs_to :person
-
 
   def filename
     "#{id}.jpg"
