@@ -23,7 +23,7 @@ class Cart
       memo
     end
   end
-  
+
   def clear
     @items = Hash.new(0)
   end
@@ -36,5 +36,13 @@ class Cart
       qty: qty
     }
     end
+  end
+
+  def change(product, qty)
+  if qty <= 0
+    self - product
+    return
+  end
+    @items[product.id] = qty
   end
 end

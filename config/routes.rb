@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get  'comprar/:id' => 'pub#buy',    as: 'buy'
   get  'busca' => 'pub#search'
   get  'carrinho' => 'pub#cart', as: 'cart'
+  delete 'remover/:id' => 'pub#remove', as: 'remove'
+  patch 'alterar/:id' => 'pub#change', as: 'change'
 
   resources :people do
     collection do
