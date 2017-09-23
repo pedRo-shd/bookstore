@@ -5,6 +5,7 @@ class Image < ActiveRecord::Base
 
   attr_accessor :data_stream, :width, :height
 
+  belongs_to :imageable, polymorphic: true
 
   def filename
     "#{id}.jpg"
