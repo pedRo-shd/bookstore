@@ -2,6 +2,8 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :load_categories, only: [:new, :edit, :create, :update]
 
+  after_action :save_image, only: [:create, :update]
+
   def index
     @books = Book.all
   end
@@ -51,6 +53,16 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def save_image
+    return if !params[:data_stream]
+    @image = @book.image ? @book.image : Image.new(title: @book.title,
+                                                   imageable_id: @book.id,
+                                                   imageable_type: controller_name.singularize.camelize)
+    @image.data_stream = params[:data_stream]
+    @image.height = 200
+    @image.save
+  end
 
   def load_categories
     @categories = Category.all

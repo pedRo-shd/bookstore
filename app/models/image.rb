@@ -12,7 +12,7 @@ class Image < ActiveRecord::Base
   end
 
   def path
-    '/images/people/'
+    "/images/#{imageable_type.pluralize.underscore}/"
   end
 
   def to_s
