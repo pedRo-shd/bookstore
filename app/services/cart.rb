@@ -3,6 +3,10 @@ class Cart
     clear
   end
 
+  def clear
+    @items = Hash.new(0)
+  end
+
   def <<(product)
     @items[product.id] += 1
     @items
@@ -11,6 +15,14 @@ class Cart
   def -(product)
     @items.delete(product.id) if @items.key?(product.id)
     @items
+  end
+
+  def change(product, qty)
+    if qty <= 0
+      self - product
+      return
+    end
+    @items[product.id] = qty
   end
 
   def include?(product)
@@ -24,25 +36,13 @@ class Cart
     end
   end
 
-  def clear
-    @items = Hash.new(0)
-  end
-
   def items
-  @items.map do |id, qty|
-    {
-      id: id,
-      item: Book.find(id),
-      qty: qty
-    }
+    @items.map do |id, qty|
+      {
+        id:   id,
+        item: Book.find(id),
+        qty:  qty
+      }
     end
-  end
-
-  def change(product, qty)
-  if qty <= 0
-    self - product
-    return
-  end
-    @items[product.id] = qty
   end
 end

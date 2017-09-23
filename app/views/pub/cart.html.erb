@@ -10,3 +10,4 @@
   <%= javascript_tag (new Bookstore.Cart()).fire(); %>
 
   <%= link_to 'Continuar comprando', root_path %>
+  <%= link_to 'Fechar pedido', close_order_path, data: { confirm: 'Tem certeza?' } %>
