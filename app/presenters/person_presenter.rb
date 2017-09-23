@@ -18,6 +18,11 @@ class PersonPresenter
     '*' * 10
   end
 
+  def image
+    return '' unless @person.image
+    helpers.image_tag(@person.image.to_s).html_safe
+  end
+
   private
 
   def helpers
