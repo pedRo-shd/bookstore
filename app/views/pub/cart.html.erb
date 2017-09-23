@@ -6,5 +6,7 @@
   <p>
     Total: <span class="book_value" id="cart_total"><%= number_to_currency(@cart.total) %></span>
   </p>
-  
+
+  <%= javascript_tag (new Bookstore.Cart()).fire(); %>
+
   <%= link_to 'Continuar comprando', root_path %>
