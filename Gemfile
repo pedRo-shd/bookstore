@@ -22,7 +22,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'responders'
 # Repository for collecting Locale data for Ruby on Rails
 gem 'rails-i18n'
-# mini replacement for RMagick 
+# mini replacement for RMagick
 gem 'mini_magick'
 
 # Use CoffeeScript for .coffee assets and views
@@ -35,7 +35,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+# jQuery UI
+gem 'jquery-ui-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

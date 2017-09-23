@@ -10,4 +10,8 @@ class PubController < ApplicationController
   def author
     @author = Person.find(params[:id])
   end
+
+  def search
+    render json: Book.all.pluck(:title)
+  end
 end

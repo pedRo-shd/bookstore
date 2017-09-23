@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get  'livro/:id'   => 'pub#book',   as: 'pub_book'
   get  'autor/:id'   => 'pub#author', as: 'pub_author'
   get  'comprar/:id' => 'pub#buy',    as: 'buy'
-
+  get 'busca' => 'pub#search'
+  
   resources :people do
     collection do
       get :admins
