@@ -14,7 +14,7 @@ var Bookstore = typeof Bookstore === "undefined" ? {} : Bookstore;
         url: "/alterar/" + id,
         method: 'PATCH',
         dataType: 'script',
-        data: { qty: qty }
+        data: { qty: qty, authenticity_token: $('meta[name=csrf-token]').attr('content') }
       });
     });
   };
