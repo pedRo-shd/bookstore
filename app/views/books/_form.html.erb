@@ -43,8 +43,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :person_id %>
-    <%= form.text_field :person_id, id: :book_person_id %>
+    <%= form.label :person_id %><br />
+    <%= collection_select :book, :person_id, @people, :id, :name %>
   </div>
 
   <div class="field">

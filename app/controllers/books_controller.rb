@@ -1,6 +1,7 @@
 class BooksController < AdminController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :load_categories, only: [:new, :edit, :create, :update]
+  before_action :load_people, only: [:new, :edit, :create, :update]
 
   after_action :save_image, only: [:create, :update]
 
@@ -62,6 +63,10 @@ class BooksController < AdminController
     @image.data_stream = params[:data_stream]
     @image.height = 200
     @image.save
+  end
+
+  def load_people
+    @people = Person.all
   end
 
   def load_categories
