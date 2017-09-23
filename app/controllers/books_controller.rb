@@ -3,8 +3,6 @@ class BooksController < ApplicationController
   before_action :load_categories, only: [:new, :edit, :create, :update]
   before_action :load_people, only: [:new, :edit, :create, :update]
 
-  after_action :save_image, only: [:create, :update]
-
   def index
     @books = Book.all
   end
@@ -53,18 +51,6 @@ class BooksController < ApplicationController
     end
   end
 
-  private
-
-  def save_image
-    return if !params[:data_stream]
-    @image = @book.image ? @book.image : Image.new(title: @book.title,
-                                                   imageable_id: @book.id,
-                                                   imageable_type: controller_name.singularize.camelize)
-    @image.data_stream = params[:data_stream]
-    @image.height = 200
-    @image.save
-  end
-
   def load_people
     @people = Person.all
   end
@@ -73,12 +59,13 @@ class BooksController < ApplicationController
     @categories = Category.all
   end
 
+  private
+
   def set_book
     @book = Book.find(params[:id])
   end
 
   def book_params
-    params.require(:book).permit(:title, :published_at, :text, :value, :person_id,
-                                 :image_title, :data_stream, :stock, category_ids: [])
+    params.require(:book).permit(:title, :published_at, :text, :value, :person_id, :data_stream, :image_title, :stock, category_ids: [])
   end
 end
