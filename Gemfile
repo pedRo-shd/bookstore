@@ -22,6 +22,8 @@ gem 'therubyracer', platforms: :ruby
 gem 'responders'
 # Repository for collecting Locale data for Ruby on Rails
 gem 'rails-i18n'
+# mini replacement for RMagick 
+gem 'mini_magick'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

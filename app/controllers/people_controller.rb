@@ -40,9 +40,10 @@ class PeopleController < AdminController
 
   def save_image
     return unless params[:data_stream].present?
-      @image = (@person.image || Image.new(title: @person.name, person_id: @person.id))
-      @image.data_stream = params[:data_stream]
-      @person.image = @image if @image.save
+    @image = (@person.image || Image.new(title: @person.name, person_id: @person.id))
+    @image.data_stream = params[:data_stream]
+    @image.height = 200
+    @person.image = @image if @image.save
   end
 
   def set_person
