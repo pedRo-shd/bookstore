@@ -16,6 +16,7 @@ class Person < ApplicationRecord
   has_secure_token :password_reset_token
   has_secure_password
 
+  has_many :orders
   has_many :books, dependent: :restrict_with_exception
   has_one :image, dependent: :destroy
   has_one :image, dependent: :destroy, as: :imageable
