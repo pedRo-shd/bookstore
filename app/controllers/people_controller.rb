@@ -59,6 +59,7 @@ class PeopleController < AdminController
   end
 
   def person_params
-    params.require(:person).permit(:name, :email, :password, :password_confirmation, :born_at)
+    params.require(:person).permit(:name, :email, :password,
+                                   :password_confirmation, :data_stream, :born_at)
   end
 end
