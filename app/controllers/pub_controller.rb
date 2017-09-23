@@ -14,4 +14,8 @@ class PubController < ApplicationController
   def search
     render json: Book.all.pluck(:title)
   end
+
+  def find_cart
+    session[:cart] ||= Cart.new
+  end
 end
