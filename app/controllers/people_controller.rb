@@ -8,6 +8,7 @@ class PeopleController < AdminController
 
   def show
     @person = PersonPresenter.new(@person)
+    respond_with @person
   end
 
   def new
