@@ -1,4 +1,5 @@
 class Book < ApplicationRecord
+  include ImageSaver
 
   validates :title, presence: true, length: { maximum: 100 }
   validates :published_at, presence: true
@@ -13,7 +14,4 @@ class Book < ApplicationRecord
   has_and_belongs_to_many :categories
   has_one :image, dependent: :destroy, as: :imageable
 
-  def sold_out?
-    stock < 1
-  end
 end
