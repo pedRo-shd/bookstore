@@ -1,4 +1,4 @@
-json.array!(@results) do |result|
-  json.id result.id
-  json.value result.title
+json.array!(@books) do |book|
+  json.id    book.id
+  json.value book.title
 end

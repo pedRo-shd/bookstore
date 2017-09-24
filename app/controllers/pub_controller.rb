@@ -2,7 +2,7 @@ class PubController < ApplicationController
   before_action :set_book, only: [:book, :buy]
 
   def index
-    @books = Book.all
+    @books = Book.page(params[:page]).per(1)
   end
 
   def book
@@ -33,7 +33,7 @@ class PubController < ApplicationController
   end
 
   def search
-    render json: Book.all.pluck(:title)
+    @books = Book.search(params[:term])
   end
 
   private

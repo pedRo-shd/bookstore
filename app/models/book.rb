@@ -11,4 +11,9 @@ class Book < ApplicationRecord
   has_and_belongs_to_many :categories
   has_one :image, dependent: :destroy, as: :imageable
 
+  def self.search(term)
+    op = Rails.env.production? ? 'ilike' : 'like'
+    where("title #{op} ?", "%#{term}%")
+  end
+
 end

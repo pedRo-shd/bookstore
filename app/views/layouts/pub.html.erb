@@ -16,10 +16,12 @@
       <li><%= auth_link %></li>
     </ul>
   </nav>
-  <section id="search">
-    <%= label_tag :search_term, 'Buscar produtos' %>
-    <%= text_field_tag :search_term, params[:term] %>
-  </section>
+  <% if params[:controller] == 'pub' %>
+    <section id="search">
+      <%= label_tag :search_term, 'Buscar produtos' %>
+      <%= text_field_tag :search_term, params[:term] %>
+    </section>
+  <%  end %>
   <section id="main">
     <%= yield %>
   </section>
