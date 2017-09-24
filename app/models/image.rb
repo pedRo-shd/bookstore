@@ -1,8 +1,6 @@
-class Image < ActiveRecord::Base
-
-  after_save  :update_file
-  after_destroy  :delete_file
-
+class Image < ApplicationRecord
+  after_save    :update_file
+  after_destroy :delete_file
   attr_accessor :data_stream, :width, :height
 
   belongs_to :imageable, polymorphic: true
@@ -35,12 +33,6 @@ class Image < ActiveRecord::Base
 
   private
 
-  def resize
-    return unless @width || @height
-    image = MiniMagick::Image.new(full_path)
-    image.resize "#{@width}x#{@height}"
-  end
-
   def delete_file
     File.unlink(full_path) if File.exist?(full_path)
   end
@@ -52,12 +44,18 @@ class Image < ActiveRecord::Base
 
   def write_data(data)
     File.open(full_path, 'wb') do |file|
-    file.write(data)
-  end
+      file.write(data)
+    end
     check_size
   end
 
   def check_size
     File.size(full_path) > 0
+  end
+
+  def resize
+    return unless @width || @height
+    image = MiniMagick::Image.new(full_path)
+    image.resize "#{@width}x#{@height}"
   end
 end
