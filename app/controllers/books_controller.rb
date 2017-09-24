@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   before_action :load_people, only: [:new, :edit, :create, :update]
 
   def index
-    @books = Book.all
+    @books = Book.page(params[:page]).per(1)
   end
 
   def show
