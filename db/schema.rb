@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923181832) do
+ActiveRecord::Schema.define(version: 20170924021345) do
 
   create_table "books", force: :cascade do |t|
     t.string "title", limit: 100, null: false
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20170923181832) do
     t.integer "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "stock"
     t.index ["person_id"], name: "index_books_on_person_id"
   end
 
@@ -46,21 +45,14 @@ ActiveRecord::Schema.define(version: 20170923181832) do
     t.index ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type"
   end
 
-  create_table "order_items", force: :cascade do |t|
-    t.integer "order_id", null: false
+  create_table "orders", force: :cascade do |t|
+    t.integer "person_id", null: false
     t.integer "book_id", null: false
     t.integer "quantity", null: false
     t.decimal "value", precision: 15, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_order_items_on_book_id"
-    t.index ["order_id"], name: "index_order_items_on_order_id"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.integer "person_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_orders_on_book_id"
     t.index ["person_id"], name: "index_orders_on_person_id"
   end
 

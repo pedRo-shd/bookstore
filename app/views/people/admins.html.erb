@@ -1,0 +1,18 @@
+<h1>Administradores</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for admin in @admins %>
+      <tr>
+        <td><%= admin.name %></td>
+        <td><%= link_to "Mostrar", admin %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Voltar", people_path %>

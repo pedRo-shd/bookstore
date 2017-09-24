@@ -6,10 +6,6 @@ Rails.application.routes.draw do
   get    'livro/:id'   => 'pub#book',   as: 'pub_book'
   get    'autor/:id'   => 'pub#author', as: 'pub_author'
   get    'comprar/:id' => 'pub#buy',    as: 'buy'
-  get    'carrinho'    => 'pub#cart',   as: 'cart'
-  delete 'remover/:id' => 'pub#remove', as: 'remove'
-  patch  'alterar/:id' => 'pub#change', as: 'change'
-  get    'fechar'      => 'pub#close_order', as: 'close_order'
   get    'pedido/:id'  => 'pub#order',  as: 'order'
   get    'busca'       => 'pub#search'
 

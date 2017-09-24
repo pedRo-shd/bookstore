@@ -5,25 +5,24 @@
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-  </head>
-
-  <body>
-    <header>
-      <h1>Interface de administração</h1>
-    </header>
-
-    <nav>
-      <ul>
-        <li><%= link_to "Pessoas", people_path %></li>
-      </ul>
-    </nav>
-
-    <section id="main">
-      <%= yield %>
-    </section>
-
-    <footer>
-      Desenvolvido por Pedro Custódio"
-    </footer>
-  </body>
+</head>
+<body>
+  <header>
+    <h1>Interface de administração</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><%= link_to "Pessoas",    people_path %></li>
+      <li><%= link_to "Livros",     books_path %></li>
+      <li><%= link_to "Categorias", categories_path %></li>
+      <li><%= link_to("Logout",  session_path(1), method: :delete) %></li>
+    </ul>
+  </nav>
+  <section id="main">
+    <%= yield %>
+  </section>
+  <footer>
+    Desenvolvido por Pedro Custódio" - <%= Date.current.year %>
+  </footer>
+</body>
 </html>

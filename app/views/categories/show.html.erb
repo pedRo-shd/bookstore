@@ -1,9 +1,28 @@
 <p id="notice"><%= notice %></p>
+<h1>Mostrando categoria</h1>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nome:</strong>
   <%= @category.name %>
 </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<h2>Livros</h2>
+<ul>
+<% for book in @category.books %>
+  <li>
+    <%= link_to book.title, book %>
+  </li>
+<% end %>
+</ul>
+
+<h2>Autores</h2>
+<ul>
+<% for person in @category.people %>
+  <li>
+    <%= link_to person.name, person %>
+  </li>
+<% end %>
+</ul>
+
+<%= link_to 'Editar', edit_category_path(@category) %> |
+<%= link_to 'Voltar', categories_path %>

@@ -2,6 +2,12 @@
 
 one:
   person: one
+  book: one
+  quantity: 1
+  value: 9.99
 
 two:
   person: two
+  book: two
+  quantity: 1
+  value: 9.99
