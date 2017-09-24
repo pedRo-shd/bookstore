@@ -23,6 +23,12 @@ class PersonPresenter
     helpers.image_tag(@person.image.to_s).html_safe
   end
 
+  def figure
+    return '' if image.blank?
+    "<figure>#{image}<figcaption>Cara do sujeito</figcaption></figure>".html_safe
+  end
+
+
   private
 
   def helpers
