@@ -22,12 +22,7 @@
 
 <p>
   <strong>Person:</strong>
-  <%= @book.person %>
-</p>
-
-<p>
-  <strong>Person:</strong>
-  <%= @book.person %>
+  <%= @book.person.name %>
 </p>
 
 <p>
@@ -37,14 +32,9 @@
 <h2>Categorias</h2>
 <ul>
   <% for category in @book.categories %>
-    <li><%= category.name %></li>
+    <li><%= link_to category.name, category %></li>
   <% end %>
 </ul>
-
-<p>
-  <strong>Estoque:</strong>
-  <%= @book.stock %>
-</p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

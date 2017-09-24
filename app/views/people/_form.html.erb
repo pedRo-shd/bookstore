@@ -39,10 +39,12 @@
 
   <% if session[:admin] %>
     <div class="field">
-      <%= label_tag :admin %><br />
+      <%= label_tag :admin, 'Administrador?' %>
       <%= check_box_tag :admin, true, @person.admin %>
     </div>
   <% end %>
+
+  <%= render "image_fields", f: form %>
 
   <div class="actions">
     <%= form.submit %>
