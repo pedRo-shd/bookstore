@@ -1,26 +1,16 @@
 class Order < ApplicationRecord
 
-  has_many :order_items
   belongs_to :person
+  belongs_to :book
+
   validates :person, presence: true
+  validates :book, presence: true
+  validates :quantity, presence: true, numericality: { greater_than: 0 }
 
-  def total
-    order_items.reduce(0) do |memo, item|
-      memo += item.quantity * item.value
-      memo
+  def self.create_by_cart(person_id, book)
+    Book.transaction do
+      order = Order.create(person_id: person_id, book_id: book.id, quantity: 1,
+        value: book.value)
     end
-  end
-
-  def self.create_by_cart(person_id, items)
-    order = Order.new(person_id: person_id)
-    items.each do |item|
-      item[:item].sell(item[:qty])
-      order_item          = OrderItem.new
-      order_item.book     = item[:item]
-      order_item.quantity = item[:qty]
-      order_item.value    = item[:item].value
-      order.order_items << order_item
-    end
-    order.save ? order : nil
   end
 end
