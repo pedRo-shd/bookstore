@@ -1,14 +1,13 @@
 class SessionsController < ApplicationController
   layout 'pub'
-  
+
   def new
   end
 
   def create
     person = Person.auth(params[:email], params[:senha])
-    if !person
-      raise NotAuthenticated if !person
-    end
+    raise NotAuthenticated if !person
+
     session[:id]    = person.id
     session[:name]  = person.name
     session[:admin] = person.admin
@@ -17,7 +16,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:id] = nil
+    session[:id]    = nil
+    session[:name]  = nil
+    session[:admin] = nil
     redirect_to new_session_url
   end
 end
