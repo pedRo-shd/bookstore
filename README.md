@@ -1,24 +1,37 @@
 # README
+# BOOKSTORE
+<!-- # [Homepage](http://) -->
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+Para começar a usar este projeto, siga as intruções abaixo:
+* Clone o repsitório: `git clone https://github.com/pedRo-shd/Sistema-Web-Classificados.git`
 
-* System dependencies
+Dependências:
+* RVM (https://rvm.io/rvm/install)
 
-* Configuration
+* Ruby: 2.4.1
+  ```
+  rvm install ruby 2.4.1
+  rvm use ruby 2.4.1
+  ```
 
-* Database creation
+* ImageMagick (https://www.imagemagick.org)
+  ```
+  sudo apt-get update
+  sudo apt-get install imagemagick
+  ```
 
-* Database initialization
+* Rode
+  ```
+  bundle
+  rails db:create db:migrate
+  ```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Para logar como administrador da Bookstore
+  ```
+  rails db:seed
+  ```
+  login:    admin@bookstore.com.br
+  password: testeteste
