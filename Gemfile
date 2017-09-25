@@ -27,6 +27,9 @@ gem 'mini_magick'
 
 gem 'kaminari'
 
+# The most popular front-end framework for developing responsive, mobile first projects on the web.
+  gem 'rails-assets-bootstrap'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

@@ -9,6 +9,7 @@ class Book < ApplicationRecord
 
   belongs_to :person
   has_and_belongs_to_many :categories
+  has_many :order, dependent: :destroy
   has_one :image, dependent: :destroy, as: :imageable
 
   def self.search(term)

@@ -3,6 +3,7 @@ class PubController < ApplicationController
 
   def index
     @books = Book.page(params[:page]).per(3)
+    @categories = Category.all
   end
 
   def book
