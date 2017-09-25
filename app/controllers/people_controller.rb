@@ -33,6 +33,7 @@ class PeopleController < AdminController
 
   def destroy
     flash[:notice] = 'Pessoa apagada' if @person.destroy
+    session.destroy
     respond_with @person
   end
 
