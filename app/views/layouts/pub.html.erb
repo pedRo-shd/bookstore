@@ -12,8 +12,16 @@
   </header>
   <nav>
     <ul>
-      <li><%= link_to 'Inicial',  '/' %></li>
-      <li><%= auth_link %></li>
+      <% if session[:id].present? %>
+        <li><%= link_to 'Inicial',  '/' %></li>
+        <li><%= link_to "Pessoas",    people_path %></li>
+        <li><%= link_to "Livros",     books_path %></li>
+        <li><%= link_to "Categorias", categories_path %></li>
+        <li><%= link_to("Logout",  session_path(1), method: :delete) %></li>
+      <% else %>
+        <li><%= link_to 'Inicial',  '/' %></li>
+        <li><%= auth_link %></li>
+      <% end %>
     </ul>
   </nav>
   <% if params[:controller] == 'pub' %>
