@@ -2,7 +2,7 @@ class PubController < ApplicationController
   before_action :set_book, only: [:book, :buy]
 
   def index
-    @books = Book.page(params[:page]).per(1)
+    @books = Book.page(params[:page]).per(3)
   end
 
   def book
