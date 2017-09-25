@@ -1,6 +1,6 @@
 person = Person.find_or_create_by(
-  name: "Pedro",
-  email: "pedrocustodio@outlook.com.br",
+  name: "Admin",
+  email: "admin@bookstore.com.br",
   born_at: "1990-05-30",
   admin: true
 )
